@@ -1,0 +1,45 @@
+---
+title: "Exercise #1"
+date: "November 2, 2023"
+output: html_document
+---
+```{r setup, include=FALSE} 
+knitr::opts_chunk$set(echo = FALSE) 
+library("dplyr")
+library("tidyverse")
+```
+
+## Documentation for `multiply_numeric`
+
+The multiply numeric function is useful if you want to multiply all numeric
+columns in your dataset by a certain number. First, it identifies if a column
+is numeric, then conducts the transformations based on the number you 
+selected. An example of how this works is below:
+
+```{r function, include = FALSE}
+multiply_numeric<- function(data, multiplier){
+  transformed_df <- data %>%
+    mutate_if(is.numeric, ~ . * multiplier)
+  
+  return(transformed_df)
+}
+```
+
+Here is a preview of what the dataset looks like before the transformation:
+```{r get data}
+data("relig_income")
+head(relig_income)
+```
+
+Here is how that same dataset looks after we use the function to multiply
+every numeric column by 2
+```{r}
+head(multiply_numeric(relig_income, 2))
+```
+And here is how it looks using the same function but with .5:
+```{r}
+head(multiply_numeric(relig_income, .5))
+```
+
+```{r ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE} 
+```
