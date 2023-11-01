@@ -1,6 +1,5 @@
 ---
 title: "Exercise #1"
-author: "Yazmin Baptiste"
 date: "November 2, 2023"
 output: html_document
 ---
